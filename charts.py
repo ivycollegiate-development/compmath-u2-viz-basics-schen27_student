@@ -27,6 +27,8 @@ plt.scatter(xs, ys, color="tab:blue")
 # FIX ME #1: a chart with no labels is unreadable.
 # Add a title and axis labels (what would you call each axis? include units)
 plt.title("Study Hours vs Test Score")
+plt.xlabel("Weekly Study Hours (hrs)")
+plt.ylabel("Test Score (points)")
 
 plt.savefig("chart_study_vs_score.png", dpi=120)
 print("saved chart_study_vs_score.png")
@@ -41,6 +43,9 @@ for r in rows:
 
 plt.figure()
 plt.bar(list(bands.keys()), list(bands.values()), color="tab:orange")
+plt.title("Study Hours and Number of Students")
+plt.xlabel("Weekly Study Hours (hrs)")
+plt.ylabel("Count of Students")
 # FIX ME #2: this chart should label its axes too -- and the y-axis
 # here counts STUDENTS, so make that obvious. Add title + both labels.
 plt.savefig("chart_study_bands.png", dpi=120)
