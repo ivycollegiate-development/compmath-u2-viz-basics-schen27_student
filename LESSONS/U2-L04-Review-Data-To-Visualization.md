@@ -65,7 +65,14 @@ cd ~/compmath-u2-data-lab
 git pull
 ```
 
-In the REPL, reconstruct the complete L03 Part 4 script:
+Create a new file `first_plot.py` in VS Code and, from memory — no copy-paste — reconstruct the complete L03 Part 4 script into it. Save, then run:
+
+```bash
+code first_plot.py
+python3 first_plot.py
+```
+
+Rebuild it cold:
 
 ```python
 import csv
@@ -137,7 +144,7 @@ Answer in 2–3 sentences each:
 - What does the `label=` + `legend()` pair do that nothing else does?
 
 ```bash
-git add review_scatter.png review_two_series.png journal-$(whoami).md
+git add first_plot.py review_scatter.png review_two_series.png journal-$(whoami).md
 git commit -m "L04: review rebuild + two series"
 git push
 ```
@@ -149,7 +156,7 @@ git push
 One screenshot showing, in order:
 
 ```
-ls -lh review_scatter.png review_two_series.png
+ls -lh first_plot.py review_scatter.png review_two_series.png
 git push
 ```
 

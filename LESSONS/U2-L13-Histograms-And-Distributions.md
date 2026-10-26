@@ -17,7 +17,19 @@ git pull
 python3 clean_data.py
 ```
 
-Then in the REPL:
+Create a new script `histograms.py` in VS Code and run it as you build it:
+
+```bash
+code histograms.py
+```
+
+Put each snippet below into `histograms.py`, save, and run it with:
+
+```bash
+python3 histograms.py
+```
+
+Start with the cleaned data:
 
 ```python
 import csv
@@ -182,7 +194,7 @@ With your partner, pick any column we have **not** histogrammed yet (Science Sco
 
 ```bash
 cd ~/compmath-u2-data-lab
-git add hist_*.png
+git add histograms.py hist_*.png
 git commit -m "L13: histograms - bins comparison, side-by-side, own column"
 git push
 ```

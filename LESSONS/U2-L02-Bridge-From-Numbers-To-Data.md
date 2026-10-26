@@ -2,7 +2,7 @@
 
 **LO:** transition from Unit 1 (numbers) to Unit 2 (data visualization) by exploring what data looks like and why it matters.
 
-Yesterday you proved you can handle numbers. Today those numbers start meaning something: we meet our first **dataset** — and discover that real data is messier than anything we typed ourselves. No plotting yet; today is pure exploration in the REPL.
+Yesterday you proved you can handle numbers. Today those numbers start meaning something: we meet our first **dataset** — and discover that real data is messier than anything we typed ourselves. No plotting yet; today is pure exploration in a Python script (`explore.py`).
 
 ---
 
@@ -50,23 +50,40 @@ git pull
 
 You should be inside `compmath-u2-data-lab`, where this unit's files live under `data/`. Every path from here on is relative to this folder.
 
-Then start the Python REPL:
+Create a new script `explore.py` in VS Code:
 
 ```bash
-python3
+code explore.py
 ```
 
-A CSV (comma-separated values) file is just text where each line is a row and commas split the columns. Python's standard library ships a module for it — no installs, ever:
+Run it as you build it (it only prints what you tell it to, so start small):
+
+```bash
+python3 explore.py
+```
+
+A CSV (comma-separated values) file is just text where each line is a row and commas split the columns. Python's standard library ships a module for it — no installs, ever. Put this in `explore.py`:
 
 ```python
 import csv
 with open("data/u2_dataset1_study_habits.csv") as f:
     rows = list(csv.reader(f))
+
+# Un-comment each print below one at a time, save, and re-run
+# print(len(rows))
+# print(rows[0])
+# print(rows[1])
 ```
 
-You should get **53** lines, and `rows[0]` should be the column names.
+Save and run:
 
-Now answer in your notes, then test:
+```bash
+python3 explore.py
+```
+
+`print(len(rows))` should give **53**, and `rows[0]` should be the column names.
+
+Now answer in your notes, then un-comment the prints one at a time and re-run to test:
 - What is `rows[0]`?
 - What is `rows[1]`?
 - How many data rows (not counting header)?
@@ -83,7 +100,7 @@ head -3 data/u2_student_performance_data.csv
 
 Line 1 is a **`#` comment** — a note someone left in the file explaining the units. Line 2 is the real header.
 
-Try to use it without noticing, exactly as you would with the clean file:
+Append this to `explore.py`, save, and run `python3 explore.py` — exactly as you would with the clean file:
 
 ```python
 with open("data/u2_student_performance_data.csv") as f:
@@ -93,13 +110,14 @@ with open("data/u2_student_performance_data.csv") as f:
 
 It crashes. That `#` line is not data at all. Real datasets are full of these surprises: comment lines, blank rows, missing values, weird units. Our first job as data people is to notice them *before* doing math.
 
-The fix is to skip the comment and then skip the header:
+The fix is to skip the comment and then skip the header. In `explore.py`, replace that last block with this fix, save, and re-run:
 
 ```python
 with open("data/u2_student_performance_data.csv") as f:
     lines = [ln for ln in f if ln.strip() and not ln.startswith("#")]
     reader = csv.reader(lines)
     rows = list(reader)
+    print(len(rows))
 ```
 
 **In your notes:** why index `2:` and not `1:`? What would `1:` have given you?
@@ -129,7 +147,9 @@ print(f"High study (>=4h): mean score = {sum(high)/len(high):.1f}")
 print(f"Low study (<4h): mean score = {sum(low)/len(low):.1f}")
 ```
 
-In your notes, then verify in the REPL:
+Append this to `explore.py`, save, and run `python3 explore.py`.
+
+In your notes, then verify from your script's output:
 - What does `max(scores)` tell you?
 - What does `min(scores)` tell you?
 - The difference between high-study and low-study averages — what does that suggest?

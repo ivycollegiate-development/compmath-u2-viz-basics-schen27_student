@@ -31,10 +31,16 @@ Open your workspace. First command, always:
 cd ~
 ```
 
-Then the REPL:
+Create a new script `first_plot.py` in VS Code and run it as you build it:
 
 ```bash
-python3
+code first_plot.py
+```
+
+Put each snippet below into `first_plot.py`, save, and run it with:
+
+```bash
+python3 first_plot.py
 ```
 
 The import everyone in the data world uses:
@@ -101,7 +107,7 @@ cd ~/compmath-u2-data-lab
 git pull
 ```
 
-Then still in the REPL (or open a file `first_plot.py` in VS Code if you prefer):
+Then replace the contents of `first_plot.py` with this real-data version, save, and run `python3 first_plot.py`:
 
 ```python
 import csv
